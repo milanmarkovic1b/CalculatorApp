@@ -1,5 +1,7 @@
 package main;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 
 public class Window extends JFrame{
@@ -14,16 +16,21 @@ public class Window extends JFrame{
 		
 		super();
 		
-		String windowTitle = "Calculator";
+		String windowTitle = "Calculator - Milan© 2026";
 		
+		setLayout(new BorderLayout());
 		setSize(windowWidth,WindowHeight);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle(windowTitle);
 		setLocationRelativeTo(null); //sets location of the window to the middle
 		
-		MainPanel mainPanel = new  MainPanel();
+		CalculationPanel calcPanel = new CalculationPanel();
+		MainPanel mainPanel = new MainPanel(calcPanel);
 		
-		add(mainPanel);
+		add(mainPanel, BorderLayout.CENTER);
+		
+		
+		add(calcPanel, BorderLayout.NORTH);
 		
 		setVisible(true);
 	}
